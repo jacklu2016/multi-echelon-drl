@@ -21,6 +21,7 @@ import gym
 from stable_baselines3 import DQN, PPO, TD3, A2C
 from stable_baselines3.common.noise import NormalActionNoise, ActionNoise
 from stable_baselines3.common.callbacks import BaseCallback
+import torch
 
 
 class HgeRateCallback(BaseCallback):
@@ -80,31 +81,33 @@ class HgeTD3(TD3):
 
         self.hge_rate = hge_rate
         self.heuristic = heuristic
+        #self.device = "cuda" if torch.cuda.is_available() else "cpu"
 
         super().__init__(
-            policy,
-            env,
-            learning_rate,
-            buffer_size,
-            learning_starts,
-            batch_size,
-            tau,
-            gamma,
-            train_freq,
-            gradient_steps,
-            action_noise,
-            replay_buffer_class,
-            replay_buffer_kwargs,
-            optimize_memory_usage,
-            policy_delay,
-            target_policy_noise,
-            target_noise_clip,
-            tensorboard_log,
-            policy_kwargs,
-            verbose,
-            seed,
-            device,
-            _init_setup_model,
+            policy=policy,
+            env=env,
+            learning_rate=learning_rate,
+            buffer_size=buffer_size,
+            learning_starts=learning_starts,
+            batch_size=batch_size,
+            tau=tau,
+            gamma=gamma,
+            train_freq=train_freq,
+            gradient_steps=gradient_steps,
+            action_noise=action_noise,
+            replay_buffer_class=replay_buffer_class,
+            replay_buffer_kwargs=replay_buffer_kwargs,
+            optimize_memory_usage=optimize_memory_usage,
+            policy_delay=policy_delay,
+            target_policy_noise=target_policy_noise,
+            target_noise_clip=target_noise_clip,
+            stats_window_size= 100,
+            tensorboard_log=tensorboard_log,
+            policy_kwargs=policy_kwargs,
+            verbose=verbose,
+            seed=seed,
+            device=device,
+            _init_setup_model=_init_setup_model,
         )
 
     def _sample_action(

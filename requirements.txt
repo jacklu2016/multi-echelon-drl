@@ -1,10 +1,12 @@
 #python 3.9
+#setuptools==65.5.1
+#选装wheel==0.38.0
 numpy
 pandas
 torch
 PyYAML>=6.0
 stable-baselines3>=1.7.0
-setuptools==65.5.1
-wheel==0.38.0
+
 gym==0.21.0
 tensorboard
+shimmy>=2.0

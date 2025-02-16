@@ -47,6 +47,9 @@ To train a TD3 agent with heuristic guided exploration (HGE), simply run the tra
 ```commandline
 python train_td3.py -e setup_exmaple_centralized.yaml
 ```
+```commandline
+python train_td3.py  -g GLOBAL_INFO -p setup_exmaple_centralized.yaml --ordering-rule d+a --role MultiFacility --scenario basic
+```
 
 Or train a TD3 / DQN / A2C  without HGE in the decentralized setting:
 

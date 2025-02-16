@@ -120,6 +120,7 @@ def main():
             tensorboard_log=f"./tensorboard/",
             hge_rate=params["hge_rate_at_start"],
             heuristic=bsp,
+            device="cpu"
         )
 
         hge_callback = HgeRateCallback(mu_start=params["hge_rate_at_start"])
